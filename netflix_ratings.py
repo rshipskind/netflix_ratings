@@ -1,11 +1,11 @@
 import json
 import matplotlib.pyplot as plt
 
-json_one = raw_input("Filepath to first account JSON: ")
-user_one = raw_input("User one: ")
-json_two = raw_input("Filepath to second account JSON, or 'pass': ")
+json_one = input("Filepath to first account JSON: ")
+user_one = input("User one: ")
+json_two = input("Filepath to second account JSON, or 'pass': ")
 if json_two != 'pass':
-    user_two = raw_input("User two: ")
+    user_two = input("User two: ")
 
 with open(json_one) as data_file:    
     data_one = json.load(data_file)
