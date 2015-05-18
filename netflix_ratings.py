@@ -1,5 +1,6 @@
 import json
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 json_one = input("Filepath to first account JSON: ")
 user_one = input("User one: ")
