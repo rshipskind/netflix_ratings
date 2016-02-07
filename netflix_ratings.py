@@ -1,3 +1,5 @@
+"""graphs two users' netflix ratings."""
+
 import json
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -8,7 +10,7 @@ json_two = input("Filepath to second account JSON, or 'pass': ")
 if json_two != 'pass':
     user_two = input("User two: ")
 
-with open(json_one) as data_file:    
+with open(json_one) as data_file:
     data_one = json.load(data_file)
 
 
@@ -30,7 +32,7 @@ for i in data_one:
         fours += 1
     elif rating == 5:
         fives += 1
-    if rating in [1,2,3,4,5]:
+    if rating in [1, 2, 3, 4, 5]:
         ratings_count += 1
 
 one_percent = float(ones) / ratings_count
@@ -45,7 +47,7 @@ y = [one_percent, two_percent, three_percent, four_percent, five_percent]
 
 
 plt.style.use('ggplot')
-plt.plot(x, y, label = user_one)
+plt.plot(x, y, label=user_one)
 plt.title('Comparative Netflix Ratings')
 plt.ylabel('Percentage of Ratings')
 plt.xlabel('Rating')
@@ -54,9 +56,8 @@ plt.xlabel('Rating')
 if json_two == 'pass':
     pass
 else:
-    with open(json_two) as data_file:    
+    with open(json_two) as data_file:
         data_two = json.load(data_file)
-
 
     ratings_count = 0
     ones = 0
@@ -76,7 +77,7 @@ else:
             fours += 1
         elif rating == 5:
             fives += 1
-        if rating in [1,2,3,4,5]:
+        if rating in [1, 2, 3, 4, 5]:
             ratings_count += 1
 
     one_percent = float(ones) / ratings_count
@@ -85,13 +86,11 @@ else:
     four_percent = float(fours) / ratings_count
     five_percent = float(fives) / ratings_count
 
-
     x = [1, 2, 3, 4, 5]
     y = [one_percent, two_percent, three_percent, four_percent, five_percent]
 
+    plt.plot(x, y, c='b', label=user_two)
 
-    plt.plot(x, y, c = 'b', label = user_two)
-
-plt.legend(loc = 'upper right')
+plt.legend(loc='upper right')
 plt.show()
 plt.clf()
